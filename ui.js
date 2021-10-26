@@ -35,6 +35,33 @@ class UI {
         </div>
         <h3 class="page-heading mb-3">Latest Repos</h3>
         <div id="repos"></div>
-        `
+        `;
+    }
+
+    //  Show Alert
+    showAlert(message, className) {
+        // Create div
+        const div = document.createElement('div');
+        // Add classes
+        div.className = className;
+        // Add text
+        div.appendChild(document.createTextNode(message));
+        // get parent 
+        const container = document.querySelector('.searchContainer');
+        // Get search box
+        const search = document.querySelector('.search');
+        // Insert alert
+        container.insertBefore(div, search);
+
+        //Timeout after 3 seconds
+        setTimeout(() => {
+            this.clearAlert();
+        }, 3000);
+
+    }
+
+    // Clear profile
+    clearProfile() {
+        this.profile.innerHTML = '';
     }
 }
